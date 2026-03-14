@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>La Queka Feliz | Ordena rápido</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="brand">
+          <h1>La Queka Feliz</h1>
+          <p>Siempre alegrando su paladar</p>
+        </div>
+        <div class="header-actions">
+          <button id="searchToggleBtn" class="icon-btn" aria-label="Buscar productos">🔎</button>
+          <button id="headerCartBtn" class="icon-btn cart-icon" aria-label="Abrir carrito">
+            🛒
+            <span id="headerCartCount" class="counter">0</span>
+          </button>
+        </div>
+      </header>
+
+      <div id="searchWrap" class="search-wrap" hidden>
+        <input id="searchInput" type="search" placeholder="Buscar quekas, bebidas, postres..." />
+      </div>
+
+      <nav id="categoryBar" class="category-bar" aria-label="Categorías"></nav>
+
+      <main>
+        <section id="menuList" class="menu-list" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <button id="floatingCartBtn" class="floating-cart" aria-label="Abrir carrito">
+      <span>Ver carrito</span>
+      <strong id="floatingCartCount" class="counter">0</strong>
+    </button>
+
+    <div id="backdrop" class="backdrop" hidden></div>
+
+    <section id="customizationSheet" class="sheet" aria-hidden="true" role="dialog" aria-modal="true">
+      <header class="sheet-header">
+        <h2 id="sheetTitle"></h2>
+        <button id="closeSheetBtn" class="icon-btn" aria-label="Cerrar">✕</button>
+      </header>
+      <div class="sheet-body">
+        <div id="priceLive" class="price-live">Total parcial: $0</div>
+        <div id="sheetContent"></div>
+      </div>
+      <footer class="sheet-footer">
+        <button id="addToCartBtn" class="btn btn-primary" disabled>Agregar al carrito</button>
+      </footer>
+    </section>
+
+    <section id="cartDrawer" class="drawer" aria-hidden="true" role="dialog" aria-modal="true">
+      <header class="drawer-header">
+        <h2>Tu pedido</h2>
+        <button id="closeCartBtn" class="icon-btn" aria-label="Cerrar carrito">✕</button>
+      </header>
+
+      <div class="checkout-form">
+        <label>Nombre del cliente
+          <input id="customerName" type="text" placeholder="Ej. Juan" />
+        </label>
+        <fieldset class="order-mode">
+          <legend>Tipo de pedido</legend>
+          <label><input type="radio" name="orderType" value="Recoger" checked /> Recoger</label>
+          <label><input type="radio" name="orderType" value="Entrega" /> Entrega</label>
+        </fieldset>
+        <label id="addressGroup" hidden>Dirección de entrega
+          <input id="deliveryAddress" type="text" placeholder="Calle, número, colonia" />
+        </label>
+        <label>Notas (opcional)
+          <textarea id="orderNotes" rows="2" placeholder="Sin cebolla, por favor"></textarea>
+        </label>
+      </div>
+
+      <div id="cartItems" class="cart-items"></div>
+
+      <footer class="drawer-footer">
+        <div class="totals">
+          <div><span>Subtotal</span><strong id="subtotalValue">$0</strong></div>
+          <div><span>Total</span><strong id="totalValue">$0</strong></div>
+        </div>
+        <div class="drawer-actions">
+          <button id="clearCartBtn" class="btn btn-muted">Vaciar</button>
+          <button id="whatsAppBtn" class="btn btn-primary">Enviar pedido por WhatsApp</button>
+        </div>
+      </footer>
+    </section>
+
+    <script src="app.js"></script>
+  </body>
+</html>
