@@ -12,17 +12,22 @@
   <body>
     <div class="app-shell">
       <header class="app-header">
-        <div class="brand">
+        <div class="header-actions left">
+          <button id="searchToggleBtn" class="icon-btn" aria-label="Buscar productos">🔎</button>
+        </div>
+
+        <div class="brand" role="img" aria-label="La Queka Feliz">
+          <span class="logo-mark">🌮</span>
           <h1>La Queka Feliz</h1>
           <p>Siempre alegrando su paladar</p>
         </div>
-        <div class="header-actions">
-          <button id="searchToggleBtn" class="icon-btn" aria-label="Buscar productos">🔎</button>
+
+        <div class="header-actions right">
+          <button id="downloadAppBtn" class="icon-btn download-btn" aria-label="Descargar app">⬇️</button>
           <button id="headerCartBtn" class="icon-btn cart-icon" aria-label="Abrir carrito">
             🛒
             <span id="headerCartCount" class="counter">0</span>
           </button>
-          <button id="downloadAppBtn" class="icon-btn download-btn" aria-label="Descargar app">⬇️</button>
         </div>
       </header>
 
@@ -38,7 +43,8 @@
     </div>
 
     <button id="floatingCartBtn" class="floating-cart" aria-label="Abrir carrito">
-      <span>Ver carrito</span>
+      <span class="floating-meta">Total en carrito</span>
+      <span class="floating-label">Ver pedido</span>
       <strong id="floatingCartCount" class="counter">0</strong>
     </button>
 
@@ -91,7 +97,6 @@
         <div class="drawer-actions">
           <button id="clearCartBtn" class="btn btn-muted">Vaciar</button>
           <button id="whatsAppBtn" class="btn btn-primary">Enviar pedido por WhatsApp</button>
-          <button id="downloadAppBtn" class="icon-btn download-btn" aria-label="Descargar app">⬇️</button>
         </div>
       </footer>
     </section>
