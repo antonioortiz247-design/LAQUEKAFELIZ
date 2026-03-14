@@ -55,6 +55,11 @@ body {
   position: relative;
 }
 
+.download-btn {
+  background: #fff7e4;
+  border: 1px solid #f1d19b;
+}
+
 .counter {
   display: inline-flex;
   align-items: center;
@@ -383,3 +388,18 @@ body {
 }
 
 #whatsAppBtn { background: var(--wa); }
+
+.install-hint {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 76px;
+  width: min(440px, calc(100% - 24px));
+  background: #2f1a12;
+  color: #fff;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: .84rem;
+  z-index: 40;
+  box-shadow: var(--shadow);
+}

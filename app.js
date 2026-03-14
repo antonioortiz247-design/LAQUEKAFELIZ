@@ -63,11 +63,12 @@ const opts = {
 };
 
 const state = { activeCat: "Quekas", query: "", cart: [], current: null, selection: { qty: 1, values: {} } };
+let deferredInstallPrompt = null;
 
 const $ = (s) => document.querySelector(s);
 const refs = {
   categoryBar: $("#categoryBar"), menuList: $("#menuList"), searchWrap: $("#searchWrap"), searchInput: $("#searchInput"),
-  searchToggleBtn: $("#searchToggleBtn"), headerCartBtn: $("#headerCartBtn"), headerCartCount: $("#headerCartCount"), floatingCartBtn: $("#floatingCartBtn"),
+  searchToggleBtn: $("#searchToggleBtn"), headerCartBtn: $("#headerCartBtn"), downloadAppBtn: $("#downloadAppBtn"), headerCartCount: $("#headerCartCount"), floatingCartBtn: $("#floatingCartBtn"),
   floatingCartCount: $("#floatingCartCount"), backdrop: $("#backdrop"), sheet: $("#customizationSheet"), sheetTitle: $("#sheetTitle"), sheetContent: $("#sheetContent"),
   priceLive: $("#priceLive"), closeSheetBtn: $("#closeSheetBtn"), addToCartBtn: $("#addToCartBtn"), cartDrawer: $("#cartDrawer"), closeCartBtn: $("#closeCartBtn"),
   cartItems: $("#cartItems"), subtotalValue: $("#subtotalValue"), totalValue: $("#totalValue"), customerName: $("#customerName"), orderNotes: $("#orderNotes"),
@@ -312,6 +313,27 @@ function buildMessage() {
   return lines.join("\n");
 }
 
+
+function showInstallHint(message) {
+  const old = document.querySelector(".install-hint");
+  if (old) old.remove();
+  const hint = document.createElement("div");
+  hint.className = "install-hint";
+  hint.textContent = message;
+  document.body.appendChild(hint);
+  setTimeout(() => hint.remove(), 3200);
+}
+
+async function handleInstallClick() {
+  if (deferredInstallPrompt) {
+    deferredInstallPrompt.prompt();
+    await deferredInstallPrompt.userChoice;
+    deferredInstallPrompt = null;
+    return;
+  }
+  showInstallHint("Para instalar: abre el menú del navegador y selecciona 'Agregar a pantalla de inicio'.");
+}
+
 function sendWhatsApp() {
   if (!state.cart.length) return alert("Tu carrito está vacío.");
   const orderType = document.querySelector('input[name="orderType"]:checked')?.value;
@@ -334,6 +356,8 @@ function bind() {
     refs.searchWrap.hidden = !refs.searchWrap.hidden;
     if (!refs.searchWrap.hidden) refs.searchInput.focus();
   });
+
+  refs.downloadAppBtn.addEventListener("click", handleInstallClick);
 
   refs.searchInput.addEventListener("input", () => {
     state.query = refs.searchInput.value.trim();
@@ -400,6 +424,11 @@ function bind() {
 
   refs.backdrop.addEventListener("click", () => { closeSheet(); closeCart(); });
 }
+
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault();
+  deferredInstallPrompt = event;
+});
 
 function init() {
   renderCategories();
