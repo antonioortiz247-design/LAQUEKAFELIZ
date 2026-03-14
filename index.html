@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La Queka Feliz | Menú Digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Menú digital</p>
+        <h1>La Queka Feliz</h1>
+        <p class="subtitle">Siempre alegrando su paladar</p>
+      </div>
+      <button id="openCartHeader" class="cart-mini" aria-label="Abrir carrito">
+        🛒 <span id="headerCartCount">0</span>
+      </button>
+    </header>
+
+    <nav class="category-tabs" id="categoryTabs" aria-label="Categorías del menú"></nav>
+
+    <main>
+      <section id="menuGrid" class="menu-grid" aria-live="polite"></section>
+    </main>
+
+    <button id="floatingCartBtn" class="floating-cart" aria-label="Abrir carrito">
+      <span>Carrito</span>
+      <strong id="floatingCartCount">0</strong>
+    </button>
+
+    <aside id="cartDrawer" class="cart-drawer" aria-label="Carrito de compras" aria-hidden="true">
+      <div class="cart-header">
+        <h2>Tu pedido</h2>
+        <button id="closeCartBtn" aria-label="Cerrar carrito">✕</button>
+      </div>
+
+      <div class="cart-controls">
+        <label>
+          Nombre del cliente
+          <input id="customerName" type="text" placeholder="Ej. Ana" />
+        </label>
+
+        <fieldset class="order-type">
+          <legend>Tipo de pedido</legend>
+          <label><input type="radio" name="orderType" value="Recoger" checked /> Recoger</label>
+          <label><input type="radio" name="orderType" value="Entrega" /> Entrega</label>
+        </fieldset>
+
+        <label>
+          Notas del pedido (opcional)
+          <textarea id="orderNotes" rows="2" placeholder="Sin cebolla, por favor"></textarea>
+        </label>
+      </div>
+
+      <div id="cartItems" class="cart-items"></div>
+
+      <div class="prep-time" id="prepTime">Tiempo estimado: 0 min</div>
+
+      <footer class="cart-footer">
+        <div class="total-row">
+          <span>Total</span>
+          <strong id="cartTotal">$0</strong>
+        </div>
+        <div class="cart-actions">
+          <button id="clearCartBtn" class="btn secondary">Vaciar carrito</button>
+          <button id="checkoutBtn" class="btn primary">Enviar pedido por WhatsApp</button>
+        </div>
+      </footer>
+    </aside>
+
+    <div id="overlay" class="overlay" hidden></div>
+
+    <section id="customizationModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="modal-content">
+        <header class="modal-header">
+          <h2 id="modalTitle"></h2>
+          <button id="closeModalBtn" aria-label="Cerrar ventana">✕</button>
+        </header>
+        <div id="modalBody" class="modal-body"></div>
+        <footer class="modal-footer">
+          <button id="addToCartBtn" class="btn primary" disabled>Agregar al carrito</button>
+        </footer>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
