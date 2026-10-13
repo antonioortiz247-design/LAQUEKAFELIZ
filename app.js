@@ -89,21 +89,29 @@ function inSearch(item) {
 }
 
 function renderMenu() {
-  const list = (menu[state.activeCat] || []).filter(inSearch);
+  const allItems = getItemsFlat().map((item) => ({
+    ...item,
+    category: categories.find((category) => (menu[category] || []).some((entry) => entry.id === item.id)) || state.activeCat
+  }));
+  const list = (state.query
+    ? allItems.filter(inSearch)
+    : allItems.filter((item) => item.category === state.activeCat));
+
   refs.menuList.innerHTML = list.length
-    ? list.map((i) => `
+    ? list.map((item) => `
       <article class="card">
         <div class="card-head">
-          <div>
-            <h3>${i.name}</h3>
-            ${i.desc ? `<p>${i.desc}</p>` : ""}
+          <div class="product-copy">
+            ${state.query ? `<span class="product-category">${item.category}</span>` : ""}
+            <h3>${item.name}</h3>
+            ${item.desc ? `<p>${item.desc}</p>` : ""}
           </div>
-          <div class="price">Desde ${money(i.base)}</div>
+          <div class="price">Desde ${money(item.base)}</div>
         </div>
-        <button class="btn btn-primary" data-item="${i.id}">Personalizar</button>
+        <button class="btn btn-primary" data-item="${item.id}" aria-label="Personalizar ${item.name}">Personalizar <span aria-hidden="true">↗</span></button>
       </article>
     `).join("")
-    : `<p class="empty">No encontramos productos para "${state.query}".</p>`;
+    : `<div class="empty-state"><span class="empty-state-mark" aria-hidden="true">⌕</span><p>No encontramos productos con esa búsqueda.</p><small>Prueba con otro nombre o categoría.</small></div>`;
 }
 
 function getItemsFlat() { return Object.values(menu).flat(); }

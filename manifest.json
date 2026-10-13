@@ -1,0 +1,21 @@
+{
+  "id": "/",
+  "name": "La Queka Feliz",
+  "short_name": "Queka Feliz",
+  "description": "Menú y pedidos de La Queka Feliz.",
+  "lang": "es-MX",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#faf8f5",
+  "theme_color": "#faf8f5",
+  "icons": [
+    {
+      "src": "./logoqueka.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
