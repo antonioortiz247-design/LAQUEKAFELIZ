@@ -614,3 +614,136 @@ body {
   z-index: 50;
   box-shadow: var(--shadow-md);
 }
+
+
+/* ===== Rediseño minimalista 2026: La Queka Feliz ===== */
+:root {
+  --bg: #faf8f5;
+  --surface: #ffffff;
+  --surface-soft: #f5f2ed;
+  --line: #e9e3dc;
+  --text: #24211f;
+  --muted: #77716b;
+  --primary: #c83d2d;
+  --primary-dark: #a92d20;
+  --accent: #f7e4b3;
+  --success: #218653;
+  --radius: 20px;
+  --shadow-sm: 0 2px 10px rgba(36, 27, 20, .045);
+  --shadow-md: 0 12px 32px rgba(36, 27, 20, .10);
+}
+html { -webkit-tap-highlight-color: transparent; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  letter-spacing: -.01em;
+  -webkit-font-smoothing: antialiased;
+}
+button, input, textarea { font: inherit; }
+button { cursor: pointer; transition: background .18s ease, border-color .18s ease, transform .18s ease, box-shadow .18s ease; }
+.app-shell { max-width: 520px; padding-bottom: 116px; background: var(--bg); }
+.app-header {
+  padding: 12px 16px;
+  background: rgba(250,248,245,.92);
+  border-bottom: 1px solid rgba(233,227,220,.8);
+  box-shadow: none;
+  backdrop-filter: blur(18px);
+}
+.brand { gap: 3px; }
+.logo-mark { width: 38px; height: 38px; background: transparent; box-shadow: none; overflow: hidden; }
+.logo-img { object-fit: contain; }
+.brand h1 { font-size: .98rem; font-weight: 800; letter-spacing: -.035em; }
+.brand p { font-size: .68rem; color: var(--muted); }
+.icon-btn {
+  width: 42px; height: 42px; border-radius: 14px;
+  border: 1px solid var(--line); background: #fff; box-shadow: none;
+  color: var(--text);
+}
+.icon-btn:hover { background: var(--surface-soft); }
+.download-btn { background: #fff; border-color: var(--line); }
+.search-wrap { top: 70px; padding: 12px 16px; background: var(--bg); }
+.search-wrap input {
+  height: 48px; border: 1px solid var(--line); border-radius: 15px;
+  background: #fff; padding: 0 16px; outline: none;
+}
+.search-wrap input:focus, .checkout-form input:focus, .checkout-form textarea:focus {
+  border-color: #c9a59c; box-shadow: 0 0 0 3px rgba(200,61,45,.08); outline: none;
+}
+.category-bar {
+  top: 70px; gap: 8px; padding: 12px 16px;
+  background: rgba(250,248,245,.96); border-bottom: 1px solid var(--line);
+}
+.cat-btn {
+  min-height: 39px; padding: 9px 15px; border: 1px solid transparent;
+  background: #efebe6; color: #625c56; font-size: .83rem; font-weight: 650;
+}
+.cat-btn.active { background: var(--text); border-color: var(--text); color: #fff; }
+.menu-list { gap: 12px; padding: 16px; }
+.card {
+  grid-template-columns: 1fr; gap: 14px; padding: 18px;
+  border-radius: var(--radius); border: 1px solid var(--line);
+  background: var(--surface); box-shadow: none;
+}
+.card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.card::before { display: none; }
+.card-head { gap: 12px; }
+.card h3 { font-size: 1.04rem; letter-spacing: -.025em; font-weight: 750; }
+.card p { margin-top: 5px; color: var(--muted); font-size: .86rem; line-height: 1.5; }
+.price {
+  padding: 0; border-radius: 0; background: transparent;
+  color: var(--primary-dark); font-size: .92rem; font-weight: 800;
+}
+.card .btn { grid-column: 1; margin-top: 0; }
+.btn { min-height: 46px; border-radius: 14px; padding: 12px 16px; font-size: .9rem; font-weight: 750; }
+.btn-primary { background: var(--primary); box-shadow: 0 5px 12px rgba(200,61,45,.12); }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-primary:disabled { background: #d9b0aa; box-shadow: none; }
+.btn-muted { background: #f0ece7; color: #514a44; }
+.floating-cart {
+  bottom: max(14px, env(safe-area-inset-bottom)); width: min(488px, calc(100% - 24px));
+  min-height: 62px; padding: 11px 16px; border-radius: 18px;
+  background: var(--text); box-shadow: 0 12px 30px rgba(25,20,16,.2);
+}
+.floating-meta { color: #d7d0c9; font-size: .67rem; }
+.floating-label { justify-self: center; font-size: .94rem; }
+.counter { background: var(--primary); }
+.backdrop { background: rgba(28,24,21,.44); backdrop-filter: blur(3px); }
+.sheet, .drawer {
+  width: min(520px, 100%); border-top-left-radius: 26px; border-top-right-radius: 26px;
+  box-shadow: 0 -16px 48px rgba(28,24,21,.16); overflow: hidden;
+}
+.sheet-header, .drawer-header { padding: 16px 18px; border-color: var(--line); background: #fff; }
+.sheet-header h2, .drawer-header h2 { font-size: 1.08rem; font-weight: 800; letter-spacing: -.025em; }
+.sheet-body { padding: 14px 18px; background: var(--bg); }
+.price-live { padding: 12px 14px; border-radius: 13px; background: #f4e8d0; color: #6c4c19; font-size: .9rem; }
+.option-block { padding: 14px; border-color: var(--line); border-radius: 16px; box-shadow: none; }
+.option-block h4 { font-size: .9rem; font-weight: 750; }
+.radio-option { border-color: var(--line); border-radius: 12px; background: #fbfaf8; padding: 12px; }
+.radio-option:has(input:checked) { border-color: var(--primary); background: #fff7f5; }
+.chip { border-color: var(--line); border-radius: 11px; padding: 10px 12px; background: #faf9f7; }
+.chip.active { background: var(--text); color: #fff; border-color: var(--text); }
+.stepper { border-color: var(--line); }
+.stepper button { background: #f0ece7; }
+.sheet-footer { padding: 14px 18px max(18px, env(safe-area-inset-bottom)); border-color: var(--line); }
+.checkout-form { padding: 14px 18px; gap: 12px; background: #fff; border-color: var(--line); font-size: .86rem; }
+.checkout-form input, .checkout-form textarea { margin-top: 6px; padding: 12px; border-color: var(--line); border-radius: 12px; }
+.order-mode { border-color: var(--line); border-radius: 12px; }
+.cart-items { padding: 14px 18px; gap: 10px; background: var(--bg); }
+.cart-item { border-color: var(--line); border-radius: 15px; padding: 14px; box-shadow: none; }
+.cart-item h5 { font-weight: 750; }
+.qty button { border-color: var(--line); border-radius: 10px; background: #f7f4f0; }
+.drawer-footer { padding: 14px 18px max(18px, env(safe-area-inset-bottom)); background: #fff; border-color: var(--line); }
+.totals div { color: var(--muted); font-size: .9rem; }
+.totals strong { color: var(--text); font-size: 1.12rem; }
+.drawer-actions { grid-template-columns: 94px 1fr; gap: 10px; }
+#whatsAppBtn { background: var(--success); }
+.install-hint { background: var(--text); border: 1px solid rgba(255,255,255,.1); border-radius: 15px; }
+.empty { color: var(--muted); font-size: .9rem; }
+@media (min-width: 600px) {
+  body { padding: 20px 0; }
+  .app-shell { border: 1px solid var(--line); border-radius: 26px; overflow: clip; box-shadow: 0 20px 60px rgba(36,27,20,.07); }
+  .app-header { border-radius: 26px 26px 0 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
