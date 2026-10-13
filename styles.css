@@ -747,3 +747,23 @@ button { cursor: pointer; transition: background .18s ease, border-color .18s ea
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }
+
+.product-copy { min-width: 0; }
+.product-category {
+  display: inline-flex; align-items: center; width: fit-content; margin-bottom: 7px;
+  color: var(--primary-dark); font-size: .68rem; font-weight: 800;
+  letter-spacing: .07em; text-transform: uppercase;
+}
+.card .btn { display: flex; justify-content: space-between; align-items: center; }
+.card .btn span { font-size: 1.05rem; opacity: .85; }
+.empty-state {
+  display: grid; justify-items: center; gap: 8px; padding: 46px 18px;
+  border: 1px dashed var(--line); border-radius: var(--radius); background: rgba(255,255,255,.55);
+  text-align: center;
+}
+.empty-state-mark {
+  display: grid; place-items: center; width: 48px; height: 48px; border-radius: 16px;
+  background: #efebe6; color: var(--muted); font-size: 1.7rem;
+}
+.empty-state p { margin: 0; font-size: .92rem; font-weight: 750; }
+.empty-state small { color: var(--muted); font-size: .8rem; }
