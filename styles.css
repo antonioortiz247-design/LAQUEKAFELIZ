@@ -747,3 +747,177 @@ button { cursor: pointer; transition: background .18s ease, border-color .18s ea
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }
+
+
+/* ===== Paleta amarillo + negro y glassmorphism ===== */
+:root {
+  --bg: #f5f5f5;
+  --surface: rgba(255,255,255,.78);
+  --surface-soft: rgba(255,255,255,.58);
+  --line: rgba(17,17,17,.09);
+  --text: #111111;
+  --muted: #666666;
+  --primary: #e6aa00;
+  --primary-dark: #9b7200;
+  --accent: #ffc107;
+  --success: #16834a;
+  --radius: 22px;
+  --shadow-sm: 0 8px 24px rgba(17,17,17,.055);
+  --shadow-md: 0 16px 42px rgba(17,17,17,.11);
+}
+body {
+  background:
+    radial-gradient(ellipse at 8% 0%, rgba(255,193,7,.19), transparent 35%),
+    radial-gradient(ellipse at 95% 26%, rgba(255,193,7,.10), transparent 28%),
+    linear-gradient(180deg, #fbfbfb 0%, #f3f3f3 55%, #f8f8f8 100%);
+}
+.app-header {
+  background: rgba(255,255,255,.72);
+  border-bottom-color: rgba(255,255,255,.72);
+  box-shadow: 0 8px 28px rgba(17,17,17,.045);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  backdrop-filter: blur(22px) saturate(160%);
+}
+.icon-btn {
+  background: rgba(255,255,255,.66);
+  border-color: rgba(17,17,17,.08);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+.download-btn { background: rgba(255,193,7,.22); border-color: rgba(230,170,0,.22); }
+.search-wrap {
+  background: rgba(245,245,245,.72);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(150%);
+}
+.search-wrap input {
+  background: rgba(255,255,255,.78);
+  border-color: rgba(17,17,17,.09);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(17,17,17,.035);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+.category-bar {
+  background: rgba(245,245,245,.76);
+  border-bottom-color: rgba(17,17,17,.06);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  backdrop-filter: blur(22px) saturate(150%);
+}
+.cat-btn {
+  background: rgba(255,255,255,.62);
+  border: 1px solid rgba(17,17,17,.055);
+  color: #4c4c4c;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+.cat-btn.active {
+  background: #111111;
+  border-color: #111111;
+  color: #ffc107;
+  box-shadow: 0 5px 16px rgba(17,17,17,.15);
+}
+.card {
+  background: rgba(255,255,255,.72);
+  border-color: rgba(255,255,255,.88);
+  box-shadow: 0 8px 28px rgba(17,17,17,.045), inset 0 1px 0 rgba(255,255,255,.8);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
+  backdrop-filter: blur(18px) saturate(145%);
+}
+.card:hover {
+  border-color: rgba(255,193,7,.55);
+  box-shadow: 0 14px 34px rgba(17,17,17,.085), inset 0 1px 0 rgba(255,255,255,.9);
+}
+.price { color: #8b6500; }
+.btn-primary {
+  background: #ffc107;
+  color: #111111;
+  box-shadow: 0 7px 18px rgba(230,170,0,.22);
+}
+.btn-primary:hover { background: #e6aa00; color: #111111; }
+.btn-primary:disabled { background: #e8dcae; color: #77705a; }
+.btn-muted {
+  background: rgba(17,17,17,.055);
+  color: #333333;
+}
+.floating-cart {
+  background: rgba(17,17,17,.88);
+  border: 1px solid rgba(255,255,255,.15);
+  box-shadow: 0 14px 36px rgba(17,17,17,.24), inset 0 1px 0 rgba(255,255,255,.12);
+  -webkit-backdrop-filter: blur(22px) saturate(145%);
+  backdrop-filter: blur(22px) saturate(145%);
+}
+.floating-meta { color: #d7d7d7; }
+.counter { background: #ffc107; color: #111111; }
+.backdrop {
+  background: rgba(12,12,12,.42);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.sheet, .drawer {
+  background: rgba(250,250,250,.94);
+  border: 1px solid rgba(255,255,255,.8);
+  box-shadow: 0 -18px 55px rgba(17,17,17,.18);
+  -webkit-backdrop-filter: blur(28px) saturate(150%);
+  backdrop-filter: blur(28px) saturate(150%);
+}
+.sheet-header, .drawer-header, .sheet-footer, .drawer-footer {
+  background: rgba(255,255,255,.82);
+  border-color: rgba(17,17,17,.08);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+}
+.sheet-body, .cart-items { background: rgba(245,245,245,.68); }
+.price-live {
+  background: rgba(255,193,7,.23);
+  color: #5f4800;
+  border: 1px solid rgba(230,170,0,.18);
+}
+.option-block, .cart-item {
+  background: rgba(255,255,255,.82);
+  border-color: rgba(17,17,17,.08);
+  box-shadow: 0 5px 18px rgba(17,17,17,.025);
+}
+.radio-option, .chip {
+  background: rgba(255,255,255,.72);
+  border-color: rgba(17,17,17,.1);
+}
+.radio-option:has(input:checked) {
+  background: rgba(255,193,7,.13);
+  border-color: #e6aa00;
+}
+.chip.active {
+  background: #ffc107;
+  border-color: #e6aa00;
+  color: #111111;
+}
+.stepper { border-color: rgba(17,17,17,.12); }
+.stepper button, .qty button {
+  background: rgba(17,17,17,.045);
+  border-color: rgba(17,17,17,.1);
+}
+.checkout-form { background: rgba(255,255,255,.78); }
+.checkout-form input, .checkout-form textarea {
+  background: rgba(255,255,255,.88);
+  border-color: rgba(17,17,17,.12);
+}
+.order-mode { border-color: rgba(17,17,17,.1); }
+.install-hint {
+  background: rgba(17,17,17,.9);
+  border-color: rgba(255,193,7,.3);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+}
+#whatsAppBtn { background: #16834a; color: #fff; }
+@media (prefers-reduced-transparency: reduce) {
+  .app-header, .icon-btn, .search-wrap, .search-wrap input, .category-bar,
+  .cat-btn, .card, .floating-cart, .sheet, .drawer, .sheet-header,
+  .drawer-header, .sheet-footer, .drawer-footer, .install-hint {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .app-header, .search-wrap, .category-bar { background: #f5f5f5; }
+  .card, .sheet, .drawer, .sheet-header, .drawer-header, .sheet-footer, .drawer-footer {
+    background: #ffffff;
+  }
+}
